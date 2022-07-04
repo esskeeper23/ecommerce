@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./javascript/checkOut.js"></script>
+    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="./css/checkout.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <header class="d-flex justify-content-between">
+        <div class="logo col-md-2">
+            <img style="width:100% ;" src="./images/logo_academlo.pngg" alt="">
+        </div>
+
+    </header>
+    
+    <div class="d-flex back-arrow"> 
+        <button class="arrow-btn" id="academlo"><img src="./images/arrow-left-solid.svg" alt=""></button>
+        <p>Magoo - Tienda oficial</p>
+    </div>
+    <div id="cart-review-js">
+        <div class="d-flex justify-content-between cart-review">
+            <p>Resumen del pedido</p>
+            <div class=" d-flex">
+                <p>$<span class="review-sub-total"></span></p>
+                <button class="down-arrow" type="submit" onclick="cartReviewHidden()">
+                    <img src="./images/angle-down-solid.svg" alt="">
+                </button>
+            </div>
+        </div>
+
+        <div class="cart-container-hidden" id="container">
+
+        </div>
+    </div>
+
+    <form class="form-container" >
+            <div class="form-row">
+                <h2 class="sub-title">Datos de contacto</h2>
+                <div class="d-flex form-contact">
+                    <div class="form-group form-contact-label col-md-5">
+                        <label for="fName">Nombre(s)<span class="mandatory">*</span></label>
+                        <input name="name" type="text" class="form-control" id="fName" placeholder="Ingresa tu nombre" required>
+                    </div>
+                    <div class="form-group form-contact-label col-md-5">
+                        <label for="lName">Apellido<span class="mandatory">*</span></label>
+                        <input name="lastName" type="text" class="form-control" id="lName" placeholder="Ingresa tus apelidos" required>
+                    </div>
+                    <div class="form-group form-contact-label col-md-5">
+                        <label for="eMail">Correo electronico<span class="mandatory">*</span></label>
+                        <input name="eMail" type="email" class="form-control" id="eMail" placeholder="Ingresa tu correo electronico" required>
+                    </div>
+                </div>    
+            </div>
+            <h2 class="shipping-address sub-title">Direccion de envio</h2>
+            <div class="form-address-container d-flex">
+                <div class="form-address d-flex">
+                    <div class="form-group form-address-label col-md-12">
+                        <label for="address">Direccion de envio</label>
+                        <input name="addres" type="text" class="form-control" id="address" placeholder="Calle" required>
+                    </div>
+                    <div class="form-group form-address-label col-md-4">
+                        <label for="addressNumber">Numero interior</label>
+                        <input name="interiorNumber" type="text" class="form-control" id="addressNumber" placeholder="Apartment, studio, or floor" required>
+                    </div>
+                    <div class="form-group form-address-label col-md-4">
+                        <label for="inputAddress2">Numero exterior</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    </div>
+                </div>
+                <div class="form-country d-flex">
+                    <div class="form-group form-country-label col-md-12">
+                        <label for="city">City</label>
+                        <input name="city" type="text" class="form-control" id="city" required>
+                    </div>
+                    <div class="form-group form-country-label col-md-4">
+                        <label for="zip">CP</label>
+                        <input name="zipCode" type="text" class="form-control" id="zip" required>
+                    </div>
+                    <div class="form-group form-country-label col-md-4">
+                        <label for="inputState">Pais</label>
+                        <select name="country" id="inputState" class="form-control" placeholder="Chose..." required>
+                        <option></option>  
+                        <option>Mexico</option>
+                        <option>Estados Unidos</option>
+                        <option>Colombia</option>
+                        <option>Chile</option>
+                        <option>Venezuela</option>
+                        <option>Argentina</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <h2 class="sub-title">Metodos de pago</h2>
+        <div class="d-flex">
+            <div class="custom-control custom-radio col-md-6 d-flex justify-content-between">
+                <div>
+                    <input type="radio" id="creditCard" name="customRadio" class="custom-control-input">
+                    <label class="custom-control-label" for="creditCard">Tarjeta de debito o credito</label>
+                </div>
+                <div class="d-flex">
+                    <img src="./images/masterCard.png" width="30">
+                    <img src="./images/visa.png" width="30">
+                </div>
+            </div>
+            <div class="custom-control custom-radio col-md-5 d-flex justify-content-between">
+                <div>
+                    <input type="radio" id="paypal" name="customRadio" class="custom-control-input">
+                    <label class="custom-control-label" for="paypal">Paypal</label>
+                </div>
+                <img class="ml-auto" src="./images/paypal.png" width="30">
+            </div>
+        </div>
+        <div class="payment-container ">
+            <div class=" col-md-6">
+                <div class="form-group d-flex flex-column mt-3 col-md-10">
+                        <label for="inputPayment">Numero de tarjeta<span class="mandaroty">*</span></label>
+                        <input type="text" placeholder="**** **** ****" id="inputPayment">
+                </div>
+                <div class="form-group d-flex flex-column mt-3 col-md-10">
+                    <label for="inputCountry">Pais<span class="mandaroty">*</span></label>
+                    <input type="text" placeholder="ingresa tu pais" id="inputCountry">
+                </div>
+            </div>
+            <div class="d-flex justify-content-around col-md-6">
+                <div class="form-group d-flex flex-column mt-2 col-md-4">
+                    <label for="inputExpire">Fecha de expiracion<span class="mandaroty">*</span></label>
+                    <input type="text" placeholder="000" id="inputExpire">
+                </div>
+                <div class="form-group d-flex flex-column mt-2 col-md-4">
+                    <label for="inputCVV">CVV<span class="mandaroty">*</span></label>
+                    <input type="text" placeholder="000" id="inputCVV">
+                </div>
+            </div>
+        </div>
+        <div class="custom-radio mt-4">
+            <input type="checkbox" id="terms" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="terms">
+                Acepto
+                <span style="font-weight:600 ;">Terminos y Condiciones</span>
+                y
+                <span style="font-weight:600 ;">Politicas de Privacidad</span>
+            </label>
+        </div>
+            <div class="order-summary-container">
+                <h2 class="sub-title">Resumen del pedido</h2>
+                <div class="summary">
+                    <div class="sub-total-container">   
+                        <p>Subtotal:</p>
+                        <p > $<span class="sub-total"></span> </p>
+                    </div>
+                    <div class="shipping-container">
+                        <p>Envio</p>
+                        <p class="shipping"> $45</p>
+                    </div>
+                    <div class="total-container">
+                        <p>Total:</p>
+                        <p > $<span class="total"></span></p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between mt-5 mb-5">
+                    <button id="button" type="submit" onclick="event.preventDefault(), fillForm()" class="btn-red col-md-4">Continuar pago</button>
+                    <button onclick="event.preventDefault()" type="submit" class="btn-white col-md-4">Volvel al carrito </button>
+                </div>
+            </div>
+            
+            
+    </form>
+
+<!--     <script type="text/javascript">
+        document.getElementById("button").onclick = function () {
+            location.href = "25.html";
+        };
+    </script> -->
+
+<script type="text/javascript">
+    document.getElementById("academlo").onclick = function () {
+        location.href = "index.html";
+    };
+</script>
+
+</body>
+</html>
