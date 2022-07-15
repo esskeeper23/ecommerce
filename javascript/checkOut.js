@@ -1,4 +1,4 @@
-let cart = JSON.parse(localStorage.getItem('newCart')) || [];
+let cart = JSON.parse(localStorage.getItem('newCart'));
 
 const container = document.getElementById("container");
 
@@ -8,7 +8,14 @@ const subTotal = document.querySelector(".sub-total");
 
 const myTotal = document.querySelector(".total");
 
-let test = 10;
+const hideForm = document.querySelector(".form-container");
+
+const button = document.getElementById("button");
+
+const order = document.querySelector(".order-container");
+
+let formData = [];
+
 
 cart.forEach((prod) => {
     const div = document.createElement("div")
@@ -22,14 +29,6 @@ cart.forEach((prod) => {
             <p id="cart-item-name">${prod.item}</p>
             <p id="cart-item-price">${prod.precio}</p>
         </div>
-        <div class="d-flex quantity">
-            <button>-</button>
-            <p>TBD</p>
-            <button>+</button>
-        </div>
-    </div>
-    <div class="col-md-2 delete-container">
-        <button onclick="deleteItem(${prod.id})" id="delete-item"><img class="delete-img" src="./images/trash-solid.svg" alt=""></button>
     </div>
     `
     container.appendChild(div)
@@ -59,5 +58,60 @@ cart.forEach((prod) => {
         myTotal.innerText = total;
         
     }
-
+    
     getTotal();
+
+    function fillForm() {
+
+        const fName = document.getElementById("fName").value;
+        const lName = document.getElementById("lName").value;
+        const eMail = document.getElementById("eMail").value;
+        const address = document.getElementById("address").value;
+        const addressNumber = document.getElementById("addressNumber").value;
+        const city = document.getElementById("city").value;
+        const zip = document.getElementById("zip").value;
+        const inputState = document.getElementById("inputState").value;
+        const card = document.getElementById("inputPayment").value;
+
+        if (fName == "" || 
+            lName == "" || 
+            eMail == "" || 
+            address == "" || 
+            addressNumber == "" || 
+            city == "" ||
+            zip == "" || 
+            inputState == "" || 
+            card == "") {
+            alert("Todos los campos son obligatorios")
+        }else {
+            formData.push({
+                name: fName, 
+                lastName: lName, 
+                eMail: eMail, 
+                address:address, 
+                addressNumber: addressNumber, 
+                city: city, 
+                zip: zip, 
+                country: inputState,
+                cart: card
+            });
+        
+            const div = document.createElement("div")
+            div.className = ("order")
+            div.innerHTML = `
+            <div class="success">
+                <img src="./images/success.png" alt="">
+                <p>gracias por su compra</p>
+            </div>
+            `
+            order.appendChild(div)
+    
+            hideForm.style.display = "none"
+            order.style.display = "flex"
+
+            localStorage.clear();
+    
+        }
+
+
+    }

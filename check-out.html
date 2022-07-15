@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
     <title>Document</title>
     <script defer src="./javascript/checkOut.js"></script>
     <link rel="stylesheet" href="./css/cart.css">
@@ -20,13 +21,13 @@
     
     <div class="d-flex back-arrow"> 
         <button class="arrow-btn" id="academlo"><img src="./images/arrow-left-solid.svg" alt=""></button>
-        <p>Academlo - Tienda oficial</p>
+        <p class="checkout-text-bold">Academlo - Tienda oficial</p>
     </div>
     <div id="cart-review-js">
         <div class="d-flex justify-content-between cart-review">
-            <p>Resumen del pedido</p>
+            <p class="checkout-text-bold">Resumen del pedido</p>
             <div class=" d-flex">
-                <p>$<span class="review-sub-total"></span></p>
+                <p class="checkout-text-medium">$<span class="review-sub-total checkout-text-medium"></span></p>
                 <button class="down-arrow" type="submit" onclick="cartReviewHidden()">
                     <img src="./images/angle-down-solid.svg" alt="">
                 </button>
@@ -43,15 +44,15 @@
                 <h2 class="sub-title">Datos de contacto</h2>
                 <div class="d-flex form-contact">
                     <div class="form-group form-contact-label col-md-5">
-                        <label for="fName">Nombre(s)<span class="mandatory">*</span></label>
+                        <label class="checkout-text-medium" for="fName">Nombre</label>
                         <input name="name" type="text" class="form-control" id="fName" placeholder="Ingresa tu nombre" required>
                     </div>
                     <div class="form-group form-contact-label col-md-5">
-                        <label for="lName">Apellido<span class="mandatory">*</span></label>
+                        <label class="checkout-text-medium" for="lName">Apellido</label>
                         <input name="lastName" type="text" class="form-control" id="lName" placeholder="Ingresa tus apelidos" required>
                     </div>
                     <div class="form-group form-contact-label col-md-5">
-                        <label for="eMail">Correo electronico<span class="mandatory">*</span></label>
+                        <label class="checkout-text-medium" for="eMail">Correo electronico</label>
                         <input name="eMail" type="email" class="form-control" id="eMail" placeholder="Ingresa tu correo electronico" required>
                     </div>
                 </div>    
@@ -60,29 +61,25 @@
             <div class="form-address-container d-flex">
                 <div class="form-address d-flex">
                     <div class="form-group form-address-label col-md-12">
-                        <label for="address">Direccion de envio</label>
+                        <label class="checkout-text-medium" for="address">Direccion de envio</label>
                         <input name="addres" type="text" class="form-control" id="address" placeholder="Calle" required>
                     </div>
                     <div class="form-group form-address-label col-md-4">
-                        <label for="addressNumber">Numero interior</label>
+                        <label class="checkout-text-medium" for="addressNumber">Numero interior</label>
                         <input name="interiorNumber" type="text" class="form-control" id="addressNumber" placeholder="Apartment, studio, or floor" required>
-                    </div>
-                    <div class="form-group form-address-label col-md-4">
-                        <label for="inputAddress2">Numero exterior</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
                     </div>
                 </div>
                 <div class="form-country d-flex">
                     <div class="form-group form-country-label col-md-12">
-                        <label for="city">City</label>
+                        <label class="checkout-text-medium" for="city">City</label>
                         <input name="city" type="text" class="form-control" id="city" required>
                     </div>
                     <div class="form-group form-country-label col-md-4">
-                        <label for="zip">CP</label>
+                        <label class="checkout-text-medium" for="zip">CP</label>
                         <input name="zipCode" type="text" class="form-control" id="zip" required>
                     </div>
                     <div class="form-group form-country-label col-md-4">
-                        <label for="inputState">Pais</label>
+                        <label class="checkout-text-medium" for="inputState">Pais</label>
                         <select name="country" id="inputState" class="form-control" placeholder="Chose..." required>
                         <option></option>  
                         <option>Mexico</option>
@@ -99,41 +96,30 @@
         <div class="d-flex">
             <div class="custom-control custom-radio col-md-6 d-flex justify-content-between">
                 <div>
-                    <input type="radio" id="creditCard" name="customRadio" class="custom-control-input">
-                    <label class="custom-control-label" for="creditCard">Tarjeta de debito o credito</label>
+                    <label class="checkout-text-medium" class="custom-control-label" for="creditCard">Tarjeta de debito o credito</label>
                 </div>
                 <div class="d-flex">
                     <img src="./images/masterCard.png" width="30">
                     <img src="./images/visa.png" width="30">
                 </div>
             </div>
-            <div class="custom-control custom-radio col-md-5 d-flex justify-content-between">
-                <div>
-                    <input type="radio" id="paypal" name="customRadio" class="custom-control-input">
-                    <label class="custom-control-label" for="paypal">Paypal</label>
-                </div>
-                <img class="ml-auto" src="./images/paypal.png" width="30">
-            </div>
+  
         </div>
         <div class="payment-container ">
             <div class=" col-md-6">
                 <div class="form-group d-flex flex-column mt-3 col-md-10">
-                        <label for="inputPayment">Numero de tarjeta<span class="mandaroty">*</span></label>
-                        <input type="text" placeholder="**** **** ****" id="inputPayment">
-                </div>
-                <div class="form-group d-flex flex-column mt-3 col-md-10">
-                    <label for="inputCountry">Pais<span class="mandaroty">*</span></label>
-                    <input type="text" placeholder="ingresa tu pais" id="inputCountry">
+                        <label class="checkout-text-medium" for="inputPayment">Numero de tarjeta</label>
+                        <input type="text" placeholder="**** **** ****" id="inputPayment" name="inputPayment" required>
                 </div>
             </div>
-            <div class="d-flex justify-content-around col-md-6">
+            <div class="d-flex justify-content-around col-md-6 align-items-end">
                 <div class="form-group d-flex flex-column mt-2 col-md-4">
-                    <label for="inputExpire">Fecha de expiracion<span class="mandaroty">*</span></label>
-                    <input type="text" placeholder="000" id="inputExpire">
+                    <label for="inputExpire">Fecha de expiracion</label>
+                    <input type="text" placeholder="000" id="inputExpire" name="inputExpire" required>
                 </div>
                 <div class="form-group d-flex flex-column mt-2 col-md-4">
-                    <label for="inputCVV">CVV<span class="mandaroty">*</span></label>
-                    <input type="text" placeholder="000" id="inputCVV">
+                    <label for="inputCVV">CVV</label>
+                    <input type="text" placeholder="000" id="inputCVV" name="inputCVV" required>
                 </div>
             </div>
         </div>
@@ -171,11 +157,9 @@
             
     </form>
 
-<!--     <script type="text/javascript">
-        document.getElementById("button").onclick = function () {
-            location.href = "25.html";
-        };
-    </script> -->
+    <div class="order-container">
+
+    </div>
 
 <script type="text/javascript">
     document.getElementById("academlo").onclick = function () {
